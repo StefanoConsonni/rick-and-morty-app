@@ -1,4 +1,5 @@
 import Header from "./components/header/Header";
+import Grid from "./components/grid/Grid";
 
 // styles
 import "./App.css";
@@ -6,8 +7,8 @@ import "./App.css";
 function App() {
 	return (
 		<div className="App">
-			<div className="container"></div>
 			<Header />
+			<Grid />
 		</div>
 	);
 }
