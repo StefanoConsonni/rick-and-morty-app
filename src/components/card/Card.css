@@ -2,6 +2,35 @@
 	box-sizing: border-box;
 	width: calc(20% - 24px);
 	border: 2px solid green;
-	height: 100px;
 	margin: 12px;
+	background-color: #333;
+	padding: 12px;
+}
+
+.card img {
+	width: 100%;
+	display: block;
+}
+
+.card-info__name {
+	margin: 0;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.card-info__name span {
+	width: 100%;
+	display: block;
+	font-weight: normal;
+	font-size: 12px;
+}
+
+.card-info__details {
+	margin: 0;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.card-info__details span {
+	font-weight: normal;
 }
