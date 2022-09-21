@@ -1,17 +1,21 @@
+import PropTypes from "prop-types";
+
+//components
 import Card from "../card/Card";
 
 // styles
 import "./Grid.css";
 
-export default function Grid() {
+export default function Grid({ characters }) {
 	return (
 		<div className="container grid">
-			<Card />
-			<Card />
-			<Card />
-			<Card />
-			<Card />
-			<Card />
+			{characters.map((character) => (
+				<Card key={character.id} character={character} />
+			))}
 		</div>
 	);
 }
+
+Grid.propTypes = {
+	characters: PropTypes.array.isRequired,
+};
