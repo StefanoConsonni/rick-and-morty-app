@@ -4,6 +4,7 @@ import { useFetch } from "./hooks/useFetch";
 // components
 import Header from "./components/header/Header";
 import Grid from "./components/grid/Grid";
+import Paginator from "./components/paginator/Paginator";
 
 // styles
 import "./App.css";
@@ -16,6 +17,7 @@ function App() {
 		<div className="App">
 			<Header />
 			<Grid characters={characters} isPending={isPending} error={error} />
+			<Paginator />
 		</div>
 	);
 }
