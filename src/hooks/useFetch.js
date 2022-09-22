@@ -1,31 +1,27 @@
 import { useState, useEffect, useRef } from "react";
 
-export const useFetch = (url, _options) => {
+export const useFetch = (url) => {
 	const [data, setData] = useState([]);
 	const [isPending, setIsPending] = useState(false);
 	const [error, setError] = useState(null);
 
-	// use useRef to wrap an object/array argument which is a useEffect dependency
-	const options = useRef(_options).current;
-
 	useEffect(() => {
-		console.log(options);
-		const controller = new AbortController();
-
 		const fetchData = async () => {
 			setIsPending(true);
 
 			try {
-				const res = await fetch(url, { signal: controller.signal });
+				const res = await fetch(url);
+
 				if (!res.ok) {
 					throw new Error(res.statusText);
 				}
-				const json = await res.json();
 
+				const data = await res.json();
 				setIsPending(false);
-				setData(json);
+				setData(data.results);
 				setError(null);
 			} catch (err) {
+				console.log(err);
 				if (err.name === "AbortError") {
 					console.log("The fetch was aborted");
 				} else {
@@ -34,12 +30,9 @@ export const useFetch = (url, _options) => {
 				}
 			}
 		};
-		fetchData();
 
-		return () => {
-			controller.abort();
-		};
+		fetchData();
 	}, [url]);
 
-	return { data: data, isPending, error };
+	return { data, isPending, error };
 };

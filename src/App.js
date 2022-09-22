@@ -9,15 +9,13 @@ import Grid from "./components/grid/Grid";
 import "./App.css";
 
 function App() {
-	const url = "https://rickandmortyapi.com/api/character/1,2,3,4,5,6";
-	const { data: characters, isPending, error } = useFetch(url, { type: "GET" });
+	const url = "https://rickandmortyapi.com/api/character/?page=3";
+	const { data: characters, isPending, error } = useFetch(url);
 
 	return (
 		<div className="App">
 			<Header />
-			{isPending && <div>Loading...</div>}
-			{error && <div>{error}</div>}
-			<Grid characters={characters} />
+			<Grid characters={characters} isPending={isPending} error={error} />
 		</div>
 	);
 }

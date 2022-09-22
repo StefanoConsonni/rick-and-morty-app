@@ -13,7 +13,9 @@ export default function Card({ character }) {
 					{character.name}
 				</p>
 				<p className="card-info__details">
-					{character.species} <span>from</span> {character.location.name}
+					{character.species}
+					<span>from</span>
+					{character.location.name}
 				</p>
 			</div>
 		</div>
