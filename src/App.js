@@ -5,6 +5,7 @@ import { useFetch } from "./hooks/useFetch";
 import Header from "./components/header/Header";
 import Grid from "./components/grid/Grid";
 import Paginator from "./components/paginator/Paginator";
+import Searchbox from "./components/searchbox/Searchbox";
 
 // styles
 import "./App.css";
@@ -32,6 +33,7 @@ function App() {
 	return (
 		<div className="App">
 			<Header />
+			<Searchbox />
 			<Grid characters={characters} isPending={isPending} error={error} />
 			<Paginator currentPage={currentPage} totalApiPages={totalApiPages} onChange={onPaginatorChange} />
 		</div>
