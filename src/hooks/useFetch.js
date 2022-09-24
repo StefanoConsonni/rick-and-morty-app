@@ -6,9 +6,6 @@ export const useFetch = (url) => {
 	const [isPending, setIsPending] = useState(false);
 	const [error, setError] = useState(null);
 
-	// use useRef to wrap an object/array argument which is a useEffect dependency
-	// const url = useRef(_url).current;
-
 	useEffect(() => {
 		const fetchData = async () => {
 			setIsPending(true);

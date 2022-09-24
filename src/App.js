@@ -12,17 +12,19 @@ import "./App.css";
 
 function App() {
 	const [currentPage, setCurrentPage] = useState(1);
+	const [searchKey, setSeachKey] = useState("");
 
 	const url = useMemo(() => {
 		const newUrl = new URL("https://rickandmortyapi.com/api/character/");
 		const params = {
 			page: currentPage,
+			name: searchKey,
 		};
 		Object.keys(params).forEach((key) => {
 			newUrl.searchParams.append(key, params[key]);
 		});
 		return newUrl;
-	}, [currentPage]);
+	}, [currentPage, searchKey]);
 
 	const { data: characters, totalApiPages, isPending, error } = useFetch(url);
 
@@ -30,10 +32,14 @@ function App() {
 		setCurrentPage(targetPage);
 	};
 
+	const onSubmitSearch = (searchKey) => {
+		setSeachKey(searchKey);
+	};
+
 	return (
 		<div className="App">
 			<Header />
-			<Searchbox />
+			<Searchbox onSubmit={onSubmitSearch} />
 			<Grid characters={characters} isPending={isPending} error={error} />
 			<Paginator currentPage={currentPage} totalApiPages={totalApiPages} onChange={onPaginatorChange} />
 		</div>
