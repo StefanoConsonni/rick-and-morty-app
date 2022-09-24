@@ -12,8 +12,7 @@ An app that fetches data from an API and displays the characters from the animat
 
 ## Demo
 
-A demo version of this project can be found at https://money-tracker-3f8f5.web.app/
-
+A demo version of this project can be found at https://rickandmorty-ste.netlify.app/
 ## Tech Stack
 
 This project is created with:
