@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useFetch } from "./hooks/useFetch";
 
 // components
@@ -13,16 +13,16 @@ import "./App.css";
 function App() {
 	const [currentPage, setCurrentPage] = useState(1);
 
-	// const url = new URL("https://rickandmortyapi.com/api/character/");
-	// const params = {
-	// 	page: currentPage,
-	// };
-	// Object.keys(params).forEach((key) => {
-	// 	url.searchParams.append(key, params[key]);
-	// 	console.log(url);
-	// });
-
-	const url = `https://rickandmortyapi.com/api/character/?page=${currentPage}`;
+	const url = useMemo(() => {
+		const newUrl = new URL("https://rickandmortyapi.com/api/character/");
+		const params = {
+			page: currentPage,
+		};
+		Object.keys(params).forEach((key) => {
+			newUrl.searchParams.append(key, params[key]);
+		});
+		return newUrl;
+	}, [currentPage]);
 
 	const { data: characters, totalApiPages, isPending, error } = useFetch(url);
 
