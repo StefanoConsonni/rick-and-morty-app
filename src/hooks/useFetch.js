@@ -1,13 +1,10 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 export const useFetch = (url) => {
 	const [data, setData] = useState([]);
 	const [totalApiPages, setTotalApiPages] = useState(1);
 	const [isPending, setIsPending] = useState(false);
 	const [error, setError] = useState(null);
-
-	// use useRef to wrap an object/array argument which is a useEffect dependency
-	// const url = useRef(_url).current;
 
 	useEffect(() => {
 		const fetchData = async () => {
