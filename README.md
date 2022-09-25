@@ -8,7 +8,7 @@
 
 ## General info
 
-An app that fetches data from an API and displays the characters from the animated science-fiction sitecom Rick and Morty. It has searchbox and pagination features. I built it using React, the fetch-API, Prop-Types, and custom hooks.
+An app that fetches data from an API and displays the characters from the animated science-fiction sitecom Rick and Morty. It has searchbox, pagination, and favourite list features. I built it using React, the fetch-API, Prop-Types, and custom hooks.
 
 ## Demo
 
